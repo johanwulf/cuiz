@@ -1,3 +1,16 @@
 export const Input = () => {
-  return <input type="text" value="Submit" className="mt-2" />;
+  return (
+    <>
+      <input
+        type="text"
+        placeholder="Enter command"
+        className="input w-full max-w-xs mt-2"
+      />
+      <input
+        type="text"
+        placeholder="Enter explanation"
+        className="input w-full max-w-xs mt-2"
+      />
+    </>
+  );
 };
