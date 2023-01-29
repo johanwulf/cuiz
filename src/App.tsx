@@ -1,13 +1,25 @@
+import React, { useState } from "react";
 import "./App.css";
 import { Start } from "./components/Start/Start";
 
-function App() {
+enum View {
+    START,
+    HOME,
+}
 
-  return (
-    <div className="App">
-      <Start />
-    </div>
-  );
+function App() {
+    const [view, setView] = useState(View.START);
+    const [quizName, setQuizName] = useState("");
+
+    const changeView = (view: View) => {
+        setView(view)
+    }
+    console.log(view)
+    return (
+        <div className="App">
+            {view === View.START && <Start onChange={changeView} />}
+        </div>
+    );
 }
 
 export default App;
