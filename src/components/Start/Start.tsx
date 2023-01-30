@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-
-enum View {
-    START,
-    HOME,
-}
-
+import { View } from "../../types/view";
 
 interface StartProps {
     onChange: (view: View) => void;
+    setQuiz: (name: string) => void;
 }
 
-export const Start = ({ onChange }: StartProps) => {
+export const Start = ({ onChange, setQuiz }: StartProps) => {
     const [quizName, setQuizName] = useState("");
     const [error, setError] = useState(false);
     const handleNextClick = () => {
@@ -21,7 +17,8 @@ export const Start = ({ onChange }: StartProps) => {
             }, 5000)
             return;
         }
-        onChange(View.HOME)
+        onChange(View.CREATE)
+        setQuiz(quizName)
     }
     return (
         <div className="flex flex-col">
