@@ -4,6 +4,7 @@ import { Start } from "./components/Start/Start";
 import { CreateQuiz } from "./components/Quiz/CreateQuiz";
 import { View } from "./types/view";
 import { Question } from "./types/questions";
+import { PlayQuiz } from "./components/Quiz/PlayQuiz";
 
 function App() {
     const [view, setView] = useState(View.START);
@@ -20,7 +21,7 @@ function App() {
             <>
                 {view === View.START && <Start onChange={changeView} setQuiz={setQuiz} />}
                 {view === View.CREATE && <CreateQuiz onChange={changeView} quizName={quizName} questions={questions} setQuestions={(question: Question) => setQuestions((questions) => [...questions, question])} />}
-                {view === View.HOME && quizName}
+                {view === View.HOME && <PlayQuiz questions={questions} />}
             </>
         </div>
     );
